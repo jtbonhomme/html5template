@@ -3,9 +3,14 @@ HTML5 website development template
 
 ## How to use this template?
 
-Your sources go in the `src` directory.
+### Your source code
 
-Then use `make` command to:
+Your sources go in the `src` directory.
+The templace actually uses [Glint Free HTML5 template](https://github.com/technext/glint).
+
+### Build
+
+Use `make` command to:
 
 ```sh
 $ make help
