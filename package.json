@@ -1,0 +1,26 @@
+{
+  "name": "html5template",
+  "version": "0.0.0",
+  "description": "HTML5 website development template",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtbonhomme/html5template.git"
+  },
+  "keywords": [
+    "html5",
+    "template"
+  ],
+  "author": "jtbonhomme@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtbonhomme/html5template/issues"
+  },
+  "homepage": "https://github.com/jtbonhomme/html5template#readme",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}
