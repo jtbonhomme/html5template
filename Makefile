@@ -10,10 +10,10 @@ deps: ## Install dependencies.
 	which yarn || (brew install yarn)
 	yarn add --dev parcel
 
-dev: deps
+dev: deps ## Start development server with hot reloading.
 	yarn parcel src/index.html
 
-build: deps
+build: deps ## Build project in 'dist' directory.
 	yarn parcel build src/index.html
 
 
