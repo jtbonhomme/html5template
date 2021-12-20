@@ -1,4 +1,4 @@
-.PHONY: help clean deps dev init
+.PHONY: help clean deps dev dist init
 IMAGES_TAG := ${shell git describe --tags --match '[0-9]*\.[0-9]*\.[0-9]*' 2> /dev/null || echo 'latest'}
 GIT_SHA1 := $(shell git rev-parse --short HEAD)
 REPO=jtbonhomme/html5template
@@ -11,11 +11,14 @@ help: ## Show this help.
 
 deps: ## Install dependencies.
 	@which minify > /dev/null || (npm install -g minify)
-	@which css-minify > /dev/null || (npm install css-minify -g)
+	@which uglifycss > /dev/null || (npm install uglifycss -g)
 	@which uglifyjs > /dev/null || (npm install uglify-js -g)
 
-dev: ## Start development server with hot reloading.
-	@npx http-server src
+dev: ## Start development server with hot reloading from sources.
+	@npx http-server $(SRC_DIRECTORY)
+
+dist: ## Start development server with hot reloading from distribution.
+	@npx http-server $(DIST_DIRECTORY)
 
 clean: ## Clean built resources.
 	@rm -rf ${DIST_DIRECTORY}
@@ -35,10 +38,11 @@ $(DIST_DIRECTORY)/%.html: $(SRC_DIRECTORY)/%.html
 	minify $< > $@
 
 $(DIST_DIRECTORY)/css/%.css: $(SRC_DIRECTORY)/css/%.css
-	cp $< $@
+	uglifycss $< > $@
 
 init:
 	@cp -r "${SRC_DIRECTORY}/" $(DIST_DIRECTORY)
+	@rm $(HTML_DIST) $(JS_DIST) $(CSS_DIST)
 
 build_html: $(HTML_DIST)
 	@echo HTML_SOURCES: $(HTML_SOURCES)
