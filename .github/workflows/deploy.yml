@@ -21,6 +21,12 @@ jobs:
           directory: 'src'
           output: 'dist/'
 
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Commit dist after minify'
+          branch: ${{ github.ref }}
+
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
         with:
@@ -48,6 +54,12 @@ jobs:
         with:
           directory: 'src'
           output: 'dist/'
+
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Commit dist after minify'
+          branch: ${{ github.ref }}
 
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
