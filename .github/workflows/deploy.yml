@@ -16,7 +16,7 @@ jobs:
 
       # Job for Minify-JS
       - name: Web minifier
-        uses: zugazagoitia/minify-js@v0.2
+        uses: jtbonhomme/minify-js@v0.5
         with:
           directory: 'src'
           output: 'dist/'
@@ -44,7 +44,7 @@ jobs:
 
       # Job for Minify-JS
       - name: Web minifier
-        uses: zugazagoitia/minify-js@v0.2
+        uses: jtbonhomme/minify-js@v0.5
         with:
           directory: 'src'
           output: 'dist/'
@@ -55,6 +55,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './src'
+          build-dir: './dist'
           comment-on-commit: true
 
