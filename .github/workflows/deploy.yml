@@ -14,12 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      - name: Auto Minify
-        uses: nizarmah/auto-minify@v2.1
-        with:
-          directory: 'src'
-          overwrite: true
-
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
         with:
