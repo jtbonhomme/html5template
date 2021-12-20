@@ -20,12 +20,6 @@ jobs:
         with:
           directory: 'src'
           output: 'dist/'
-          
-      # Auto-commit to repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Minify-JS : Commit Pipeline'
-          branch: ${{ github.ref }}
 
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
@@ -33,7 +27,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './src'
+          build-dir: './dist'
           draft: true
           comment-on-commit: true
 
@@ -54,12 +48,6 @@ jobs:
         with:
           directory: 'src'
           output: 'dist/'
-          
-      # Auto-commit to repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Minify-JS : Commit Pipeline'
-          branch: ${{ github.ref }}
 
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
