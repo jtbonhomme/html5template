@@ -338,7 +338,7 @@
                 $.ajax({
     
                     type: "POST",
-                    url: "inc/sendEmail.php",
+                    url: "https://izysaas.us7.list-manage.com/subscribe/post?u=d0a00fd63111d2fc133152ec3&amp;id=1bdacbf5fa",
                     data: $(form).serialize(),
                     beforeSend: function() { 
     
