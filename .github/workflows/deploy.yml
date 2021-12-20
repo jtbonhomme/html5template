@@ -14,8 +14,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      # ... your other build steps to produce a build directory
-      # e.g. `npm run build` for create-react-app
+      # Job for Minify-JS
+      - name: Web minifier
+        uses: zugazagoitia/minify-js@v0.2
+        with:
+          directory: 'src'
+          output: 'dist/'
+          
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Minify-JS : Commit Pipeline'
+          branch: ${{ github.ref }}
 
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
@@ -38,8 +48,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      # ... your other build steps to produce a build directory
-      # e.g. `npm run build` for create-react-app
+      # Job for Minify-JS
+      - name: Web minifier
+        uses: zugazagoitia/minify-js@v0.2
+        with:
+          directory: 'src'
+          output: 'dist/'
+          
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Minify-JS : Commit Pipeline'
+          branch: ${{ github.ref }}
 
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
